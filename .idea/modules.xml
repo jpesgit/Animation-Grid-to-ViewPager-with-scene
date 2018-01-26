@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SETransition.iml" filepath="$PROJECT_DIR$/SETransition.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SETransitionDemo.iml" filepath="$PROJECT_DIR$/.idea/SETransitionDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
