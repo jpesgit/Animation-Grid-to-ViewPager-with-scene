@@ -59,7 +59,7 @@ public class DestinationActivity extends AppCompatActivity {
         }
         setContentView(R.layout.activity_destination);
         FrameLayout container = (FrameLayout) findViewById(R.id.container);
-        colorDrawable = new ColorDrawable(getResources().getColor(R.color.colorPrimaryDark));
+        colorDrawable = new ColorDrawable(getResources().getColor(android.R.color.white));
         container.setBackgroundDrawable(colorDrawable);
 
         Intent intent = getIntent();
@@ -70,6 +70,8 @@ public class DestinationActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         viewPager.setAdapter(new PhotoAdapter(uris, onDismissListener));
         viewPager.setCurrentItem(current);
+        viewPager.setPageMargin(64);
+
     }
 
     @Override
