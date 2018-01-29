@@ -70,16 +70,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             imageView.setTag(count);
             imageView.setOnClickListener(this);
             photoViews[count] = imageView;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                imageView.setTransitionName(
-                        context.getString(R.string.transition_name, getAdapterPosition(), count));
-            }
+
             count++;
         }
 
         public void bindView(Uri uri) {
             imageView.setImageURI(uri);
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                imageView.setTransitionName(
+                        context.getString(R.string.transition_name, getAdapterPosition(),(int) imageView.getTag()));
+            }
 
         }
 

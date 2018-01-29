@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -81,9 +82,12 @@ public class DestinationActivity extends AppCompatActivity {
         intent.putExtra("exit_position", pos);
         setResult(RESULT_OK, intent);
         if (current != pos) {
-            View view = viewPager.findViewWithTag(
-                    getString(R.string.transition_name, adapterPosition, pos));
-            setSharedElementCallback(view);
+            View view = viewPager.findViewWithTag( pos);
+            if (view!=null) {
+                setSharedElementCallback(view);
+            } else {
+                Toast.makeText(this,"Sem view", Toast.LENGTH_SHORT);
+            }
         }
         super.finishAfterTransition();
     }
@@ -95,8 +99,8 @@ public class DestinationActivity extends AppCompatActivity {
             public void onMapSharedElements(List<String> names, Map<String, View> sharedElements) {
                 names.clear();
                 sharedElements.clear();
-                names.add(view.getTransitionName());
-                sharedElements.put(view.getTransitionName(), view);
+                names.add(view.getTag().toString());
+                sharedElements.put(view.getTag().toString(), view);
             }
         });
     }
@@ -149,7 +153,7 @@ public class DestinationActivity extends AppCompatActivity {
                 String name = container.getContext()
                         .getString(R.string.transition_name, adapterPosition, position);
                 imageView.setTransitionName(name);
-                imageView.setTag(name);
+                imageView.setTag(position);
                 if (position == current) {
                     setStartPostTransition(imageView);
                 }

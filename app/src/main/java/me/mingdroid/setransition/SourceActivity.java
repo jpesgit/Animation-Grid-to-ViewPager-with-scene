@@ -63,8 +63,8 @@ public class SourceActivity extends AppCompatActivity {
                     names.clear();
                     sharedElements.clear();
                     View view = sharedViews[exitPosition];
-                    names.add(view.getTransitionName());
-                    sharedElements.put(view.getTransitionName(), view);
+                    names.add(view.getTag().toString());
+                    sharedElements.put(view.getTag().toString(), view);
                 }
                 setExitSharedElementCallback((SharedElementCallback) null);
                 sharedViews = null;
